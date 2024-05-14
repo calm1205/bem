@@ -279,24 +279,24 @@ Element にレイアウトを持たせる。
 <main>
   <div class="logo main__logo">...</div>
 </main>
+```
 
-<style>
-  /* NG header,main上で同じレイアウトとは限らない */
-  .logo {
-    margin-top: 5px;
-  }
+```css
+/* NG header,main上で同じレイアウトとは限らない */
+.logo {
+  margin-top: 5px;
+}
 
-  /* OK どこに配置するとしても必要なstyleのみ */
-  .logo {
-    width: 100px;
-  }
+/* OK どこに配置するとしても必要なstyleのみ */
+.logo {
+  width: 100px;
+}
 
-  .head__logo {
-    margin-top: 5px;
-  }
-  .main__logo {
-    margin-top: 5px;
-    margin-left: 5px;
-  }
-</style>
+.head__logo {
+  margin-top: 5px;
+}
+.main__logo {
+  margin-top: 5px;
+  margin-left: 5px;
+}
 ```
