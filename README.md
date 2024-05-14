@@ -26,6 +26,8 @@ a.button {
 }
 ```
 
+<br/><br/>
+
 ## Block
 
 特定のコンテキストに依存していない、どこでも使いわませるパーツ
@@ -42,9 +44,13 @@ a.button {
 }
 ```
 
+<br/><br/>
+
 ## Element
 
-Block を構成し、Block の外では使用できない。
+Element は、Block を構成し、Block の外では使用できない。
+
+要点
 
 - クラス名から影響範囲が想像できること
 - クラス名から見た目・機能・役割が想像できる
@@ -61,5 +67,62 @@ Block を構成し、Block の外では使用できない。
     <a class="menu__link" href="tab1/">Tab1</a>
   </li>
   ...
+</ul>
+```
+
+```css
+/* NG Elementの詳細度が高い */
+.menu {
+}
+.menu.menu__item {
+}
+.menu.menu__item.menu__link {
+}
+
+/* OK Elementも含めて詳細度が均一*/
+.menu {
+}
+.menu__item {
+}
+.menu__link {
+}
+```
+
+### Element はなくても良い
+
+それぞれ独立した Block
+
+```html
+<!--サーチフォームBlock-->
+<div class="search-form">
+  <!-- インプットBlock -->
+  <input class="input" />
+  <!-- ボタンBlock -->
+  <button class="button">Search</button>
+</div>
+```
+
+### Element が多くなったとき
+
+Element を Block に昇格させる
+
+```html
+<ul class="menu">
+  <li class="menu__item">
+    <a class="menu__link" href="tab1/">Tab1</a
+    ><a class="menu__btn" href="lp/"><span class="menu__icon"></span>ToLP</a>
+  </li>
+</ul>
+```
+
+↓
+
+```html
+<ul class="menu">
+  <li class="menu__item">
+    <a class="menu__link" href="tab1/">Tab1</a>
+    <!--.btnBlockを新たに作成した-->
+    <a class="btn" href="lp/"><span class="btn__icon"></span>ボタン</a>
+  </li>
 </ul>
 ```
