@@ -4,7 +4,7 @@
 
 ### 標準命名
 
-block-name\_\_element-name_modifier-key_modifier-val
+`block-name\_\_element-name_modifier-key_modifier-val`
 
 - 英数字の小文字
 - Element と Modifier はそれぞれ Block の名前を継承する
@@ -15,7 +15,7 @@ block-name\_\_element-name_modifier-key_modifier-val
 
 ### MindBEMding
 
-block-name\_\_element-name--modifier-key--modifier-val
+`block-name\_\_element-name--modifier-key--modifier-val`
 
 - Block と Element の区切りはアンダースコアふたつ
 - Modifier のキーの区切りはハイフンふたつ
@@ -253,7 +253,9 @@ Mix は単一の DOM ノードに、異なる BEM エンティティが複数付
 ```
 
 `.head__logo`は`.head`Block に依存する`.logo`Element である。
+
 分割することで`.logo`Block の独立性が保たれる。
+
 `.logo`Block を`.company-logo`に改名しても`.head__logo`には影響が出ない。
 
 <br/><br/>
