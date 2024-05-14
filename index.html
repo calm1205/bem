@@ -8,17 +8,25 @@
   </head>
   <body class="body">
     <header class="head">
-      <div class="menu head__menu"></div>
-      <div class="logo head__logo"></div>
-      <form class="search head__search"></form>
-      <form class="auth head__auth"></form>
+      <div class="logo logo--primary">LOGO</div>
+      <div class="menu">MENU</div>
     </header>
 
     <main class="main">
-      <div class="logo main__logo"></div>
+      <form class="form" action="#">
+        <input
+          class="form__input form__item"
+          type="text"
+          placeholder="type something..."
+        />
+        <button class="form__button form__item">Submit</button>
+      </form>
+      <div class="logo main__logo">LOGO</div>
     </main>
 
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <div class="logo footer__logo logo--primary">LOGO</div>
+    </footer>
   </body>
 </html>
 
@@ -31,26 +39,53 @@
 
   .head {
     border: 5px solid aquamarine;
-    height: 50px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
   }
+
   .logo {
     width: 100px;
   }
-
-  .head__logo {
-    margin-top: 5px;
+  .logo--primary {
+    color: red;
   }
+
   .main {
     border: 5px solid indianred;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex: 1;
+    padding: 20px;
+  }
+  .form {
+    display: flex;
+    gap: 10px;
+  }
+  .form__item {
+    color: black;
+  }
+  .form__input {
+    padding: 10px;
+    width: 200px;
+    height: 30px;
+  }
+  .form__button {
+    padding: 0 10px;
+    height: 30px;
   }
   .main__logo {
-    margin-top: 5px;
-    margin-left: 5px;
+    margin-top: 20px;
   }
 
   .footer {
     border: 5px solid darkmagenta;
-    height: 50px;
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
   }
 </style>
