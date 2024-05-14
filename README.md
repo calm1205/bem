@@ -1,5 +1,26 @@
 # bem
 
+## 命名
+
+### 標準命名
+
+block-name\_\_element-name_modifier-key_modifier-val
+
+- 英数字の小文字
+- Element と Modifier はそれぞれ Block の名前を継承する
+- それぞれの区切りの中に複数の単語がある場合はハイフンひとつ
+- Block と Element の区切りはアンダースコアふたつ
+- Modifier のキーの区切りはアンダースコアひとつ
+- Modifier の値の区切りもアンダースコアひとつ
+
+### MindBEMding
+
+block-name\_\_element-name--modifier-key--modifier-val
+
+- Block と Element の区切りはアンダースコアふたつ
+- Modifier のキーの区切りはハイフンふたつ
+- Modifier の値の区切りもハイフンふたつ
+
 ## 基本
 
 ### 要素型セレクターや ID セレクターは使わない
