@@ -126,3 +126,151 @@ Element を Block に昇格させる
   </li>
 </ul>
 ```
+
+<br/><br/>
+
+## Modifier
+
+Modifier は 、Block もしくは Element の見た目や状態、振る舞いを定義するもの
+
+要点
+
+- Modifier は単独で存在できない。必ず Block か Element が有る状態で２つ目以降のクラスとして使用する
+
+```html
+<!-- NG Modifierを単独で使用している-->
+<a class="button_size_s" href="#">ボタン</a>
+
+<!-- OK ○ふたつ目のクラス名としてModifierを付けている-->
+<a class="button button_size_s" href="#">ボタン</a>
+```
+
+### キーと値
+
+キーと値は`_`でつなぐ
+
+```css
+/* textがキー、largeやsmallが値 */
+.menu__item_text_large {
+}
+.menu__item_text_small {
+}
+```
+
+### 命名は「それがどうであるか」
+
+- 見た目
+  - size_s
+  - theme_caution
+- 状態
+  - active
+  - disabled
+  - focused
+- 振る舞い
+  - directions_right-to-left
+  - position_bottom-right
+
+### Modifier 名は省略しない
+
+命名が長くなりやすいが、style の衝突回避、詳細度の担保、検索しやすさを考慮して省略しない
+
+user-login-button という Block に size_s という Modifier を付ける場合
+
+```html
+<a class="user-login-button user-login-button_size_s" href="#">ボタン</a>
+```
+
+```html
+<!-- NG -->
+<a class="user-login-button size_s" href="#">ボタン</a>
+<img class="hero-image_size_s" src="dummy.png" />
+
+<style>
+  /* NG styleの衝突*/
+  .size_s {
+    padding: 5px;
+  }
+  .size_s {
+    width: 200px;
+  }
+
+  /* NG 詳細度が上がる */
+  .user-login-button.size_s {
+  }
+  .hero-image.size_s {
+  }
+</style>
+```
+
+## Mix
+
+Mix は単一の DOM ノードに、異なる BEM エンティティが複数付与されたもの
+
+```html
+<header class="head">
+  <div class="menu head__menu">...</div>
+  <div class="logo head__logo">...</div>
+  <form class="search head__search">...</form>
+  <form class="auth head__auth">...</form>
+</header>
+
+<main>
+  <div class="logo main__logo">...</div>
+</main>
+```
+
+```css
+.logo {
+  width: 100px;
+}
+
+.head__logo {
+  margin-top: 5px;
+}
+```
+
+`.head__logo`は`.head`Block に依存する`.logo`Element である。
+分割することで`.logo`Block の独立性が保たれる。
+`.logo`Block を`.company-logo`に改名しても`.head__logo`には影響が出ない。
+
+## レイアウト
+
+Block にはそれ自身のレイアウトを持たせない。
+Element にレイアウトを持たせる。
+
+レイアウトとは`position`, `padding`, `margin`等の配置を制御するような style を指す。
+
+なぜなら、Block 自体がレイアウトをもってしまうと`特定のコンテキストに依存していない、どこでも使いわませるパーツ`を満たせないため。
+
+```html
+<header class="head">
+  <div class="menu head__menu">...</div>
+  <div class="logo head__logo">...</div>
+  <form class="search head__search">...</form>
+  <form class="auth head__auth">...</form>
+</header>
+
+<main>
+  <div class="logo main__logo">...</div>
+</main>
+
+<style>
+  /* NG header,main上で同じレイアウトとは限らない */
+  .logo {
+    margin-top: 5px;
+  }
+
+  /* OK どこに配置するとしても必要なstyleのみ */
+  .logo {
+    width: 100px;
+  }
+
+  .head__logo {
+    margin-top: 5px;
+  }
+  .main__logo {
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+</style>
+```
