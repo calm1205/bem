@@ -223,6 +223,8 @@ user-login-button という Block に size_s という Modifier を付ける場�
 </style>
 ```
 
+<br/><br/>
+
 ## Mix
 
 Mix は単一の DOM ノードに、異なる BEM エンティティが複数付与されたもの
@@ -254,8 +256,11 @@ Mix は単一の DOM ノードに、異なる BEM エンティティが複数付
 分割することで`.logo`Block の独立性が保たれる。
 `.logo`Block を`.company-logo`に改名しても`.head__logo`には影響が出ない。
 
+<br/><br/>
+
 ## レイアウト
 
+責務の話
 Block にはそれ自身のレイアウトを持たせない。
 Element にレイアウトを持たせる。
 
